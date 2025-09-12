@@ -32,11 +32,12 @@
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
-        android:layout_height="220dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_header_rounded"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingTop="36dp"
+        android:paddingBottom="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -61,25 +62,38 @@
     </LinearLayout>
 
     <!-- Content area -->
-    <LinearLayout
-        android:id="@+id/content"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contentScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
 
-        <!-- Feature: AI-Powered Assessment -->
         <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_feature"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+        <!-- Feature: AI-Powered Assessment -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="48dp"
@@ -116,7 +130,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp" />
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Spacer -->
         <Space
@@ -124,13 +138,20 @@
             android:layout_height="12dp" />
 
         <!-- Feature: Offline First -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_feature"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="48dp"
@@ -167,7 +188,7 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp" />
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Spacer -->
         <Space
@@ -175,13 +196,20 @@
             android:layout_height="12dp" />
 
         <!-- Feature: Gamified Experience -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_feature"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="48dp"
@@ -218,37 +246,61 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp" />
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Spacer large -->
         <Space
             android:layout_width="match_parent"
             android:layout_height="24dp" />
 
-        <!-- CTA buttons -->
-        <Button
-            android:id="@+id/btnAthlete"
+        <!-- CTA buttons with shadows -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnAthleteCard"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_button_orange"
-            android:text="JOIN AS ATHLETE"
-            android:textAllCaps="true"
-            android:textColor="@color/text_on_brand"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/brand_orange"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="JOIN AS ATHLETE"
+                android:textAllCaps="true"
+                android:textColor="@color/text_on_brand"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="12dp" />
 
-        <Button
-            android:id="@+id/btnCoach"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCoachCard"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_button_green"
-            android:text="REGISTER AS COACH"
-            android:textAllCaps="true"
-            android:textColor="@color/text_on_brand"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/brand_green"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:text="REGISTER AS COACH"
+                android:textAllCaps="true"
+                android:textColor="@color/text_on_brand"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
         <Space
             android:layout_width="match_parent"
@@ -275,6 +327,7 @@
                 android:textColor="@color/brand_orange"
                 android:textStyle="bold" />
         </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
