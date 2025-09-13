@@ -10,4 +10,12 @@
     <string name="overall_score">Overall Score</string>
     <string name="badges_earned">Badges Earned</string>
     <string name="test_completed">Test Completed</string>
+    <string name="vertical_jump_test">Vertical Jump Test</string>
+    <string name="instruction_nstand_with_feet_soulder_width_apart_njupm_as_high_as_possible_nland_softly_on_both_feet_ncomplete_3_attempts">Instruction:-\nStand With feet soulder-width apart\njupm as high as possible\nLand softly on both feet\nComplete 3 attempts</string>
+    <string-array name="spinner_items">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Transgender</item>
+        <item>Prefer Not to say</item>
+    </string-array>
 </resources>
